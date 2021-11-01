@@ -7,3 +7,15 @@ Arduino micro rubber ducky to auto install raspbian with noobs and enable ssh wi
 - Connect the USB key into the raspberry
 - Power on the Raspberry and wait aproximatly 2 min
 - Connect the arduino and wait until the LED on the board blink
+
+# What did the script type ?
+
+- ctrl + alt + F2
+- root
+- raspberry
+- mount /dev/sda1 /mnt2
+- mount -o remount,rw /dev/mmcblk0p1 /mnt
+- rm -r /mnt/os/Libre*
+- cp /mnt2/boot.tar.xz /mnt/os/RaspiOS_Full_armhf/.
+- echo -n " silentinstall" >> /mnt/recovery.cmdline
+- reboot -f
