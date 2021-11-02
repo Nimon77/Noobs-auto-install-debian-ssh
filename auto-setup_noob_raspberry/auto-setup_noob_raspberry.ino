@@ -1,17 +1,17 @@
 #include "Keyboard.h"
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(LED_BUILTIN, OUTPUT);
   Keyboard.begin();
-  Keyboard.press(KEY_LEFT_CTRL);
+  delay(1000);
+  
   Keyboard.press(KEY_LEFT_ALT);
   Keyboard.press(KEY_F2);
   delay(100);
   Keyboard.releaseAll();
-  delay(100); // wait switch screen to recovery
+  delay(500); // wait until switch to login screen
   
   Keyboard.println("root");
+  delay(500);
   Keyboard.println("raspberry");
   delay(1000); // wait login
 
@@ -22,21 +22,17 @@ void setup() {
   delay(500); // remount first partition of SD card in RW mode
 
   Keyboard.println("rm -r /mnt/os/Libre*");
-  delay(100); // delete useless distro (LibreELEC)
+  delay(500); // delete useless distro (LibreELEC)
 
   Keyboard.println("cp /mnt2/boot.tar.xz /mnt/os/RaspiOS_Full_armhf/.");
   delay(5000); // move new boot archive for Raspbian with SSH enable to the SD Card
 
-  Keyboard.println("echo -n " silentinstall" >> /mnt/recovery.cmdline");
-  delay(100);
+  Keyboard.println("echo -n \" silentinstall\" >> /mnt/recovery.cmdline");
+  delay(500); // enable silent install for the next boot
   
-  Keyboard.println("reboot -f");
+  Keyboard.println("reboot -f"); // reboot to start silent install
 }
 
 void loop() {
-  // blink when complete
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(500);
+  exit(0);
 }
