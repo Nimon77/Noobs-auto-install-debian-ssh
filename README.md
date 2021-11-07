@@ -10,6 +10,7 @@ Arduino micro rubber ducky to auto install raspbian with noobs and enable ssh wi
 
 # What did the script type ?
 
+```shell
 - ctrl + alt + F2
 - root
 - raspberry
@@ -19,3 +20,4 @@ Arduino micro rubber ducky to auto install raspbian with noobs and enable ssh wi
 - cp /mnt2/boot.tar.xz /mnt/os/RaspiOS_Full_armhf/.
 - echo -n " silentinstall" >> /mnt/recovery.cmdline
 - reboot -f
+```
