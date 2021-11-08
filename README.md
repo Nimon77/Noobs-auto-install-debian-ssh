@@ -11,7 +11,7 @@ Arduino micro rubber ducky to auto install raspbian with noobs and enable ssh wi
 # What did the script type ?
 
 ```shell
-- ctrl + alt + F2
+- alt + F2
 - root
 - raspberry
 - mount /dev/sda1 /mnt2
