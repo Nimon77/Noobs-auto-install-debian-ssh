@@ -19,5 +19,6 @@ Arduino micro rubber ducky to auto install raspbian with noobs and enable ssh wi
 - rm -r /mnt/os/Libre*
 - cp /mnt2/boot.tar.xz /mnt/os/RaspiOS_Full_armhf/.
 - echo -n " silentinstall" >> /mnt/recovery.cmdline
+- ifconfig eth0 | grep HWaddr | awk -F \" \" '{print $5}' >> /mnt2/MAC_address.txt
 - reboot -f
 ```
