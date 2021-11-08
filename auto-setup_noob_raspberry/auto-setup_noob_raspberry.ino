@@ -30,9 +30,12 @@ void setup() {
   Keyboard.println("echo -n \" silentinstall\" >> /mnt/recovery.cmdline");
   delay(500); // enable silent install for the next boot
   
+  Keyboard.println("ifconfig eth0 | grep HWaddr | awk -F \" \" '{print $5}' >> /mnt2/MAC_address.txt");
+  delay(500); // save MAC address of the raspberry
+  
   Keyboard.println("reboot -f"); // reboot to start silent install
 }
 
 void loop() {
-  exit(0);
+  //exit(0);
 }
